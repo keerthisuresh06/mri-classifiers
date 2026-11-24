@@ -25,7 +25,7 @@ def test_predict_rejects_non_image():
     assert r.status_code == 400
 
 
-def test_root_redirects_to_docs():
+def test_root_redirects_to_demo():
     r = client.get("/", follow_redirects=False)
     assert r.status_code in (302, 307)
-    assert r.headers["location"] == "/docs"
+    assert r.headers["location"] == "/demo"

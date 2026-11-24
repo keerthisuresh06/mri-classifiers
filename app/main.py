@@ -10,7 +10,7 @@ from fastapi.responses import RedirectResponse
 
 @app.get("/", include_in_schema=False)
 def root():
-    return RedirectResponse("/docs")
+    return RedirectResponse("/demo")
 @app.get("/health")
 def health():
     return {"status": "ok"}
@@ -29,3 +29,7 @@ async def predict_endpoint(file: UploadFile = File(...)):
         "probabilities": probs,
         "disclaimer": "Research demo only. Not a medical device.",
     }
+import gradio as gr
+from app.ui import build_ui
+
+app = gr.mount_gradio_app(app, build_ui(model), path="/demo")
