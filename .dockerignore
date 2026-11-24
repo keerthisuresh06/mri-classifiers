@@ -1,0 +1,6 @@
+cat > .dockerignore << 'EOF'
+.venv
+__pycache__
+.pytest_cache
+*.jpg
+EOF
