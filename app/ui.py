@@ -1,14 +1,14 @@
 import gradio as gr
 from app.model import predict
 
-def build_ui(model):
+def build_ui(model, wrap=lambda f: f):
     def classify(img):
         if img is None:
             return {}
         return predict(model, img)
 
     return gr.Interface(
-        fn=classify,
+        fn=wrap(classify),
         inputs=gr.Image(type="pil", label="Brain MRI slice"),
         outputs=gr.Label(num_top_classes=4, label="Prediction"),
         title="Brain MRI tumour classifier",
