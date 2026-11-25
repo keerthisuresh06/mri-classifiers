@@ -1,4 +1,16 @@
 ---
+title: Brain MRI Tumour Classifier
+emoji: 🧠
+colorFrom: blue
+colorTo: gray
+sdk: gradio
+sdk_version: "6.32.0"
+python_version: "3.12"
+app_file: demo.py
+pinned: false
+short_description: Research demo of MRI classification. Not a medical device.
+---
+
 # Brain MRI tumour classifier
 
 ![CI](https://github.com/keerthisuresh06/mri-classifiers/actions/workflows/ci.yml/badge.svg)
@@ -24,7 +36,7 @@ and limitations are in the [model card](https://huggingface.co/Keerthisuresh12/m
 ## What I found along the way
 
 - **The official Kaggle split leaks.** 294 groups of near-duplicate images crossed
-  train and test. I pooled the data and re-split by perceptual hash.
+  train and test. I pooled the data and re -split by perceptual hash.
 - **BatchNorm made validation unstable.** Controlled experiments traced erratic
   validation loss to BatchNorm's evaluation statistics; GroupNorm fixed it.
 - **Possible shortcut.** The "no tumour" class comes from a different source with
@@ -63,4 +75,3 @@ Weights download automatically from the Hugging Face model repo on first use.
 
 - Occlusion tests on missed tumours
 - External validation on MRI from a different source
----
